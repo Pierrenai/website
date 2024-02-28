@@ -27,7 +27,6 @@ app.set('views', path.join(__dirname, 'src/views'));
 // Utilisez le contrôleur de page
 app.use('/', pageController);
 
-
 // Démarrez le serveur
 app.listen(port, () => {
   console.log(`Serveur en cours d'exécution sur le port ${port}`);

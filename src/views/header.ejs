@@ -1,19 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site Web</title>
-    <!-- Ajoutez vos liens CSS ou d'autres éléments head ici -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <title>Pierre Bayle</title>
+
+
+  <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="dist/aos.css" />
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <link href="css/cover.css" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <h1>Mon Header</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/about">À propos</a></li>
-                <!-- Ajoutez d'autres liens de navigation ici -->
-            </ul>
+
+<body class="d-flex <%= vars[3] %> text-center text-bg-dark">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <div>
+        <!-- <h3 class="float-md-start mb-0">CV</h3> -->
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="nav-link fw-bold py-1 px-0 <%= vars[0] %>" aria-current="page" href="/">Home</a>
+          <a class="nav-link fw-bold py-1 px-0 <%= vars[1] %>" href="about-me">About-me</a>
+          <a class="nav-link fw-bold py-1 px-0 <%= vars[4] %>" href="projects">Projects</a>
+          <a class="nav-link fw-bold py-1 px-0 <%= vars[2] %> " href="contact">Contact</a>
         </nav>
+      </div>
     </header>
