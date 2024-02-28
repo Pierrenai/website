@@ -9,6 +9,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const log = require('./loggerController');
 
 
 // Importer le modèle de vue (EJS dans cet exemple)
@@ -27,30 +28,24 @@ function renderPage(req, res, contentTemplate, vars) {
   });
 }
 
-
-
 // Rendre tous les fichiers dans le dossier "public" accessibles
 router.use('/', express.static('src/public'));
 router.use('/bootstrap/', express.static('node_modules/bootstrap'));
 
 
 router.get('/', function(req, res) {
+  log(req, 'Page requested: /');
   const vars = [];
-  vars[0]= "active";
-  vars[1]= "";
-  vars[2]= "";
-  vars[3]= "h-100";
-  vars[4]= "";
+  vars[0]= "index";
+  vars[3]= "true";
   renderPage(req, res, 'index', vars);
 });
 
 router.get('/about-me', function(req, res) {
+  log(req, 'Page requested: /about-me');
   const vars = [];
-  vars[0]= "";
-  vars[1]= "active";
-  vars[2]= "";
+  vars[0]= "about-me";
   vars[3]= "";
-  vars[4]= "";
   renderPage(req, res, 'about-me', vars);
 });
 /*
@@ -59,21 +54,17 @@ router.get('/about-me', (req, res) => {
 });
 */
 router.get('/projects', function(req, res) {
+  log(req, 'Page requested: /projects');
   const vars = [];
-  vars[0]= "";
-  vars[1]= "";
-  vars[2]= "";
+  vars[0]= "projects";
   vars[3]= "";
-  vars[4]= "active";
   renderPage(req, res, 'projects', vars);
 });
 router.get('/contact', function(req, res) {
+  log(req, 'Page requested: /contact');
   const vars = [];
-  vars[0]= "";
-  vars[1]= "";
-  vars[2]= "active";
-  vars[3]= "h-100";
-  vars[4]= "";
+  vars[0]= "contact";
+  vars[3]= "true";
   renderPage(req, res, 'contact', vars);
 });
 
@@ -86,6 +77,7 @@ router.get('/dist/aos.js', (req, res) => {
 });
 
 router.get('/dl-cv', (req, res) => {
+  log(req, 'Download requested: /dl-cv');
   res.sendFile(path.join(__dirname, '../public/dl/bayle_cv.pdf'));
 });
 
@@ -94,6 +86,7 @@ router.get('/storyquest-video.mp4', (req, res) => {
 });
 
 router.get('/dl-storyquest', (req, res) => {
+  log(req, 'Download requested: /dl-storyquest');
   res.sendFile(path.join(__dirname, '../public/dl/StoryQuest.zip'));
 });
 
